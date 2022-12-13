@@ -1,16 +1,29 @@
 // C++ implementation of Radix Sort
 
 #include <iostream>
-#include<time.h>
 using namespace std;
-
+#include<time.h>
 timefunction()
 {
-	time_t seconds;
-	
-	seconds = time(NULL);
-	printf("Seconds since January 1, 1970 = %ld\n", seconds);
+    clock_t start, stop;
+    int i;
+    start = clock();
+    for(i=0; i<2000;i++)
+    {
+        printf("%d", (i*1)+(1^4));
+    }
+    printf("\n\n");
+    stop = clock();
+
+    //(double)(stop - start) / CLOCKS_PER_SEC
+  printf("before sorting=");
+    printf("%6.3f\n", start);
+   printf("after sorting=");
+
+    printf("%6.3f", stop);
+    return 0;
 }
+
 
 // A utility function to get maximum value in arr[]
 int getMax(int arr[], int n)
@@ -64,22 +77,26 @@ void radixsort(int arr[], int n)
 		countSort(arr, n, exp);
 }
 
+// A utility function to print an array
+void print(int arr[], int n)
+{
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+}
 
-
-
+// Driver Code
 int main()
-{  
-    float t,t1,t2;
+{float t,t1,t2;
 	int arr[] = { 170, 45, 75, 90, 802, 24, 2, 66 };
 	int n = sizeof(arr) / sizeof(arr[0]);
 	
 	// Function Call
-        t1=timefunction();
+	t1=timefunction();
 	radixsort(arr, n);
-    t2=timefunction();
+		t2=timefunction();
 
 	t=t2-t1;
-    cout<<"timecomplexity= "<<t<< " second";
-	//printf(arr, n);
+	cout<<"\ntimecomplexity= "<<t<<" millisecond\n";
+	print(arr, n);
 	return 0;
 }
