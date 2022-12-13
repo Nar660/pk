@@ -4,13 +4,24 @@ using namespace std;
 #include<time.h>
 timefunction()
 {
-	time_t seconds;
-	
-	seconds = time(NULL);
-	printf("Seconds since January 1, 1970 = %ld\n", seconds);
+    clock_t start, stop;
+    int i;
+    start = clock();
+    for(i=0; i<2000;i++)
+    {
+        printf("%d", (i*1)+(1^4));
+    }
+    printf("\n\n");
+    stop = clock();
+
+    //(double)(stop - start) / CLOCKS_PER_SEC
+  printf("before sorting=");
+    printf("%6.3f\n", start);
+   printf("after sorting=");
+
+    printf("%6.3f", stop);
+    return 0;
 }
-
-
 /* function to sort arr using shellSort */
 int shellSort(int arr[], int n)
 {
@@ -58,7 +69,7 @@ int main()
     t2=timefunction();
 	
 	t=t2-t1;
-	cout<<"timecomplexity= "<<t<<"second";
+	cout<<"\ntimecomplexity= "<<t<<" millisecond";
 
 
 	cout << "\nArray after sorting: \n";
