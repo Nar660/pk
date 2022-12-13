@@ -15,7 +15,7 @@ struct Node {
 	}
 };
 
-// Function to traverse the tree in preorder
+// Function to traverse the tree in preorder.
 // and check if the given node exists in it
 bool ifNodeExists(struct Node* node, int key)
 {
