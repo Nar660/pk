@@ -1,14 +1,26 @@
 // C++ program for Merge Sort
 #include <iostream>
 using namespace std;
-# include<time.h>
-
+#include<time.h>
 timefunction()
 {
-	time_t seconds;
-	
-	seconds = time(NULL);
-	printf("Seconds since January 1, 1970 = %ld\n", seconds);
+    clock_t start, stop;
+    int i;
+    start = clock();
+    for(i=0; i<2000;i++)
+    {
+        printf("%d", (i*1)+(1^4));
+    }
+    printf("\n\n");
+    stop = clock();
+
+    //(double)(stop - start) / CLOCKS_PER_SEC
+  printf("before sorting=");
+    printf("%6.3f\n", start);
+   printf("after sorting=");
+
+    printf("%6.3f", stop);
+    return 0;
 }
 
 // Merges two subarrays of array[].
@@ -87,23 +99,34 @@ void mergeSort(int array[], int const begin, int const end)
 	merge(array, begin, mid, end);
 }
 
+// UTILITY FUNCTIONS
+// Function to print an array
+void printArray(int A[], int size)
+{
+	for (auto i = 0; i < size; i++)
+		cout << A[i] << " ";
+}
 
-
-
+// Driver code
 int main()
 {float t,t1,t2;
 	int arr[] = { 12, 11, 13, 5, 6, 7 };
 	auto arr_size = sizeof(arr) / sizeof(arr[0]);
 
 	
-    t1=timefunction();
+
+	
+		t1=timefunction();
 	mergeSort(arr, 0, arr_size - 1);
 	t2=timefunction();
 
 	t=t2-t1;
-	cout<<"timecomplexity= "<<t<<"second";
-     
+	cout<<"\ntimecomplexity= "<<t<<" millisecond\n";
+	cout << "Given array is \n";
+	printArray(arr, arr_size);
 
-
+	cout << "\nSorted array is \n";
+	
+	printArray(arr, arr_size);
 	return 0;
 }
