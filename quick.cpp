@@ -1,14 +1,25 @@
 /* C++ implementation of QuickSort */
 #include <bits/stdc++.h>
-#include<time.h>
 using namespace std;
-
 timefunction()
 {
-	time_t seconds;
-	
-	seconds = time(NULL);
-	printf("Seconds since January 1, 1970 = %ld\n", seconds);
+    clock_t start, stop;
+    int i;
+    start = clock();
+    for(i=0; i<2000;i++)
+    {
+        printf("%d", (i*1)+(1^4));
+    }
+    printf("\n\n");
+    stop = clock();
+
+    //(double)(stop - start) / CLOCKS_PER_SEC
+  printf("before sorting=");
+    printf("%6.3f\n", start);
+   printf("after sorting=");
+
+    printf("%6.3f", stop);
+    return 0;
 }
 
 // A utility function to swap two elements
@@ -76,12 +87,14 @@ int main()
 	int arr[] = { 10, 7, 8, 9, 1, 5 };
 	int n = sizeof(arr) / sizeof(arr[0]);
 	
-    t1=timefunction();
+	cout << "Sorted array: \n";
+	t1=timefunction();
 	quickSort(arr, 0, n - 1);
-    t2=timefunction();
-	
+	t2=timefunction();
+
 	t=t2-t1;
-	cout<<"timecomplexity= "<<t<<" second";
+	cout<<"\ntimecomplexity= "<<t<<" millisecond\n";
+	printArray(arr, n);
      
 	return 0;
 }
